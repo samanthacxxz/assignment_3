@@ -21,7 +21,7 @@ const ExpenseTrackerForm = () => {
 
     const validateForm = () => {
         let isValid = true;
-        const clonedErrorObj = {...errors};
+        const clonedErrorObj = {...error};
          // if the input has no content - show error message
         if (!expenseData.expenseTitle.trim()) {
             clonedErrorObj.expenseTitleError = "Expense Title is required!";
@@ -47,27 +47,21 @@ const ExpenseTrackerForm = () => {
             isValid = false;
         }
 
-        setErrors(clonedErrorObj);
+        setError(clonedErrorObj);
         return isValid;
    
 
     }
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setErrors((prevErrors) => ({
-          ...prevErrors,
+        setError((prevError) => ({
+          ...prevError,
           [`${name}Error`]: "",
         }));
-        setUserData((prev) => ({
+        setExpenseData((prev) => ({
           ...prev,
           [name]: value,
         }));
-        if (name === "message" && value.length >= 300) {
-          setErrors((prevErrors) => ({
-            ...prevErrors,
-            messageError: "Maximum characters allowed is 300",
-          }));
-        }
       };
 
     const handleSubmit = (e) => {
@@ -83,7 +77,7 @@ const ExpenseTrackerForm = () => {
 
   return (
     <>
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className='input_group'>
                 <label htmlFor="expenseTitle">
                     Expense Title<sup>*</sup>
@@ -92,6 +86,7 @@ const ExpenseTrackerForm = () => {
                 type="text"
                 name='expenseTitle'
                 className='input_element'
+                onChange={handleChange}
                 />
                 <p>Expense Title Error</p>
             </div>
@@ -104,6 +99,8 @@ const ExpenseTrackerForm = () => {
                 type="text"
                 name='expenseAmount'
                 className='input_element'
+                onChange={handleChange}
+
                 />
                 <p>Expense Amount Error</p>
             </div>
@@ -115,6 +112,8 @@ const ExpenseTrackerForm = () => {
                 type="date"
                 name='expenseDate'
                 className='input_element'
+                onChange={handleChange}
+
                 />
                 <p>Expense Date Error</p>
             </div>
