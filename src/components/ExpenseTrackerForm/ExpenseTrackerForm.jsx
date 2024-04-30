@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styles from './ExpenseTrackerForm.module.css'
 
 const ExpenseTrackerForm = () => {
     // default expense data
