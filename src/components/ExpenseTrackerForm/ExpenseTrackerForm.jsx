@@ -89,7 +89,7 @@ const ExpenseTrackerForm = () => {
             </div>
             <div className='input_group'>
                 <label htmlFor="expenseCategory">
-                    Expense Title<sup>*</sup>
+                    Expense Category<sup>*</sup>
                 </label>
                 <select name="expenseCategory">
                     <option value="">Housing</option>
