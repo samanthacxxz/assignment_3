@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styles from './ExpenseTrackerForm'
 
 const ExpenseTrackerForm = () => {
     // default expense data
@@ -45,10 +46,40 @@ const ExpenseTrackerForm = () => {
             clonedErrorObj.expenseAmountError = "Write the amount in numbers"
             isValid = false;
         }
+
+        setErrors(clonedErrorObj);
+        return isValid;
    
 
     }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setErrors((prevErrors) => ({
+          ...prevErrors,
+          [`${name}Error`]: "",
+        }));
+        setUserData((prev) => ({
+          ...prev,
+          [name]: value,
+        }));
+        if (name === "message" && value.length >= 300) {
+          setErrors((prevErrors) => ({
+            ...prevErrors,
+            messageError: "Maximum characters allowed is 300",
+          }));
+        }
+      };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const isValid = validateForm();
+        if (isValid) {
+          // Your form submission logic here
+          console.log("Form is valid. Submitting...");
+        } else {
+          console.log("Form is invalid. Please correct the errors.");
+        }
+    };
 
   return (
     <>
@@ -99,6 +130,7 @@ const ExpenseTrackerForm = () => {
                     <option value="">Other</option>
                 </select>
             </div>
+            <button type='submit' className={styles.submitButton}>Submit :)</button>
         </form>
     </>
   )
