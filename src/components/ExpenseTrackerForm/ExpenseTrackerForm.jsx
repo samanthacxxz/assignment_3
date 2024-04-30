@@ -45,10 +45,23 @@ const ExpenseTrackerForm = () => {
             clonedErrorObj.expenseAmountError = "Write the amount in numbers"
             isValid = false;
         }
+
+        setErrors(clonedErrorObj);
+        return isValid;
    
 
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const isValid = validateForm();
+        if (isValid) {
+          // Your form submission logic here
+          console.log("Form is valid. Submitting...");
+        } else {
+          console.log("Form is invalid. Please correct the errors.");
+        }
+      };
 
   return (
     <>
