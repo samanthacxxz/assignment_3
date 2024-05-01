@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './ExpenseTrackerForm'
 
-const ExpenseTrackerForm = () => {
+const ExpenseTrackerForm = ({ itemProps }) => {
     // default expense data
     const [expenseData, setExpenseData] = useState({
         expenseTitle: "",
