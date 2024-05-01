@@ -1,8 +1,7 @@
-import { useState, useContext } from 'react'
+import { useState } from 'react'
+import styles from './ExpenseTrackerForm.module.css'
 
-
-const expenseContext = useContext();
-const ExpenseTrackerForm = ({ itemProps }) => {
+const ExpenseTrackerForm = () => {
 
     // default expense data
     const [expenseData, setExpenseData] = useState({
@@ -36,7 +35,7 @@ const ExpenseTrackerForm = ({ itemProps }) => {
             clonedErrorObj.expenseAmountError = "Expense Amount is required!";
             isValid = false;
         } else if (expenseData.expenseAmount.trim() > 5) {
-            clonedErrorObj.expenseAmountError = "Amount is conceringly too high"
+            clonedErrorObj.expenseAmountError = "The Amount is conceringly too high"
         }
         if (!expenseData.expenseDate) {
             clonedErrorObj.expenseDateError = "Please choose the date!"
@@ -90,7 +89,7 @@ const ExpenseTrackerForm = ({ itemProps }) => {
                 className='input_element'
                 onChange={handleChange}
                 />
-                <p>Expense Title Error</p>
+                <p>{error.expenseTitleError}</p>
             </div>
 
             <div className='input_group'>
@@ -104,7 +103,7 @@ const ExpenseTrackerForm = ({ itemProps }) => {
                 onChange={handleChange}
 
                 />
-                <p>Expense Amount Error</p>
+                <p>{error.expenseAmountError}</p>
             </div>
             <div className='input_group'>
                 <label htmlFor="expenseDate">
@@ -117,7 +116,7 @@ const ExpenseTrackerForm = ({ itemProps }) => {
                 onChange={handleChange}
 
                 />
-                <p>Expense Date Error</p>
+                <p>{error.expenseDateError}</p>
             </div>
             <div className='input_group'>
                 <label htmlFor="expenseCategory">
@@ -137,4 +136,4 @@ const ExpenseTrackerForm = ({ itemProps }) => {
   )
 }
 
-export  {ExpenseTrackerForm, expenseContext } 
+export default ExpenseTrackerForm
