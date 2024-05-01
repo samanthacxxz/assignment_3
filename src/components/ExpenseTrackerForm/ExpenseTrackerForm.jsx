@@ -1,6 +1,9 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
+
+const expenseContext = useContext();
 const ExpenseTrackerForm = ({ itemProps }) => {
+
     // default expense data
     const [expenseData, setExpenseData] = useState({
         expenseTitle: "",
@@ -134,4 +137,4 @@ const ExpenseTrackerForm = ({ itemProps }) => {
   )
 }
 
-export default ExpenseTrackerForm
+export  {ExpenseTrackerForm, expenseContext } 
