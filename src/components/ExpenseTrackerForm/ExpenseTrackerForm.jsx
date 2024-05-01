@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import styles from './ExpenseTrackerForm.module.css'
 
-const ExpenseTrackerForm = () => {
+const ExpenseTrackerForm = ({ itemProps }) => {
     // default expense data
     const [expenseData, setExpenseData] = useState({
         expenseTitle: "",
@@ -21,7 +20,7 @@ const ExpenseTrackerForm = () => {
 
     const validateForm = () => {
         let isValid = true;
-        const clonedErrorObj = {...errors};
+        const clonedErrorObj = {...error};
          // if the input has no content - show error message
         if (!expenseData.expenseTitle.trim()) {
             clonedErrorObj.expenseTitleError = "Expense Title is required!";
@@ -46,14 +45,38 @@ const ExpenseTrackerForm = () => {
             clonedErrorObj.expenseAmountError = "Write the amount in numbers"
             isValid = false;
         }
+
+        setError(clonedErrorObj);
+        return isValid;
    
 
     }
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setError((prevError) => ({
+          ...prevError,
+          [`${name}Error`]: "",
+        }));
+        setExpenseData((prev) => ({
+          ...prev,
+          [name]: value,
+        }));
+      };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const isValid = validateForm();
+        if (isValid) {
+          // Your form submission logic here
+          console.log("Form is valid. Submitting...");
+        } else {
+          console.log("Form is invalid. Please correct the errors.");
+        }
+    };
 
   return (
     <>
-        <form>
+        <form onSubmit={handleSubmit}>
             <div className='input_group'>
                 <label htmlFor="expenseTitle">
                     Expense Title<sup>*</sup>
@@ -62,6 +85,7 @@ const ExpenseTrackerForm = () => {
                 type="text"
                 name='expenseTitle'
                 className='input_element'
+                onChange={handleChange}
                 />
                 <p>Expense Title Error</p>
             </div>
@@ -74,6 +98,8 @@ const ExpenseTrackerForm = () => {
                 type="text"
                 name='expenseAmount'
                 className='input_element'
+                onChange={handleChange}
+
                 />
                 <p>Expense Amount Error</p>
             </div>
@@ -85,6 +111,8 @@ const ExpenseTrackerForm = () => {
                 type="date"
                 name='expenseDate'
                 className='input_element'
+                onChange={handleChange}
+
                 />
                 <p>Expense Date Error</p>
             </div>
@@ -100,6 +128,7 @@ const ExpenseTrackerForm = () => {
                     <option value="">Other</option>
                 </select>
             </div>
+            <button type='submit' className={styles.submitButton}>Submit :)</button>
         </form>
     </>
   )
