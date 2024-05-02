@@ -1,0 +1,20 @@
+.expenseList {
+    width: 70vh;
+    height: 80vh;
+    background-color: lightpink;
+}
+
+.itemsList {
+    width: max-content;
+    height: max-content;
+    background-color: antiquewhite;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.itemRow {
+    list-style: none;
+}
