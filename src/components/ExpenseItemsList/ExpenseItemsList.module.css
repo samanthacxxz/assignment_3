@@ -1,13 +1,15 @@
+
+
 .expenseList {
-    width: 70vh;
-    height: 80vh;
-    background-color: lightpink;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .itemsList {
     width: max-content;
     height: max-content;
-    background-color: antiquewhite;
     
     display: flex;
     flex-direction: row;

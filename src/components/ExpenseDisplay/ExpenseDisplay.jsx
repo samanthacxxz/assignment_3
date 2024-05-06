@@ -11,8 +11,6 @@ const ExpenseDisplay = () => {
   // transactionData as an array with different objects
   const [transactionData, setTransactionData] = useState([]);
   
-  //default state for transtractions
-  const [transactions, setTransactions] = useState(transactionData); 
 
   // Function to update transactionData
   const updateTransactionData = (data) => {
@@ -34,12 +32,9 @@ const ExpenseDisplay = () => {
         </div>
 
         <div className={styles.expenses_container}>
-          <ExpenseItemsList transactions={transactionData}/>
-        </div>
+        <ExpenseItemsList transactions={transactionData} setTransactionData={setTransactionData} />
+        </div> 
       </section>
-
-
-
     </>
   )
 }
