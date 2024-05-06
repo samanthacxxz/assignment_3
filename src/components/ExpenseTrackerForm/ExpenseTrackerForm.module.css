@@ -1,4 +1,14 @@
+
+.input_group {
+    display: flex;
+    flex-direction: column;
+    padding: 10% 10%;
+}
+
+
 .submitButton {
+    width: max-content;
+    height: max-content;
     background-color: rgb(80, 100, 118);
     color: whitesmoke;
 }

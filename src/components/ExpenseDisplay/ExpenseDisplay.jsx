@@ -1,30 +1,40 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ExpenseItemsList from '../ExpenseItemsList/ExpenseItemsList'
 import ExpenseTrackerForm from '../ExpenseTrackerForm/ExpenseTrackerForm'
-import utility from '../../utility'
 
 
 import styles from '../ExpenseDisplay/ExpenseDisplay.module.css'
 
 
 const ExpenseDisplay = () => {
-  const transactionsData = [
-    { id: utility(), title: 'cookies', amount: 20, category: 'grocery'},
-    { id: utility(), title: 'pepsi', amount: 20, category: 'grocery'}
-  ]
+  // transactionData as an array with different objects
+  const [transactionData, setTransactionData] = useState([]);
+  
+  //default state for transtractions
+  const [transactions, setTransactions] = useState(transactionData); 
 
-  const [transactions, setTransactions] = useState(transactionsData)
+  // Function to update transactionData
+  const updateTransactionData = (data) => {
+    setTransactionData([...transactionData, data]);
+  }
+
+  useEffect(() => {
+    console.log(transactionData); // Log the updated transaction array
+  }, [transactionData]);
+
   return (
     <>
-      <h2 className={styles.title}>Expense Tracker App</h2>
+      <header>
+        <h2 className={styles.title}>Expense Tracker App</h2>
+      </header>
       <section className={styles.display_container}>
         <div className={styles.form_container}>
-          <ExpenseTrackerForm />
+          <ExpenseTrackerForm updateTransactionData={updateTransactionData}/>
         </div>
 
-        <div className={styles.expenses_listed}>
-          <ExpenseItemsList transcations={transactions}/>
+        <div className={styles.expenses_container}>
+          <ExpenseItemsList transactions={transactionData}/>
         </div>
       </section>
 

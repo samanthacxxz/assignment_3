@@ -9,17 +9,33 @@
 }
 
 .display_container {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
 }
 
 .form_container {
+   /* width: 45vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+*/
+    width: 45vh;
+    height: 100%;
+    background-color: aliceblue;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-.expenses_listed {
+.expenses_container {
+    display: block;
+    background-color: lightpink;
 
+    width: 100%;
+    height: 100%;
 }
