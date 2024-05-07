@@ -27,8 +27,7 @@
     height: 85vh;
     background-color: aliceblue;
 
-    display: flex;
-    flex-direction: column;
+    display: block;
     justify-content: space-evenly;
 }
 
