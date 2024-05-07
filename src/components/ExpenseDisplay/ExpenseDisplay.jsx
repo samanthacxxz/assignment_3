@@ -32,7 +32,11 @@ const ExpenseDisplay = () => {
         </div>
 
         <div className={styles.expenses_container}>
-        <ExpenseItemsList transactions={transactionData} setTransactionData={setTransactionData} />
+          <ExpenseItemsList 
+            transactions={transactionData}
+            setTransactionData={setTransactionData} 
+            className={styles.items_list}
+          />
         </div> 
       </section>
     </>

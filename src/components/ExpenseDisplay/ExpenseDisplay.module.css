@@ -24,7 +24,7 @@
     align-items: center;
 */
     width: 45vh;
-    height: 100%;
+    height: 85vh;
     background-color: aliceblue;
 
     display: flex;
@@ -37,5 +37,10 @@
     background-color: lightpink;
 
     width: 100%;
-    height: 100%;
+    height: 85vh;
+}
+
+.items_list {
+    display: flex;
+    flex-direction: column;
 }
