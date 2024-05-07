@@ -13,15 +13,22 @@ const ExpenseItemsList = ({ transactions, setTransactionData }) => {
   };
   return (
     <div>
-      <h2>Expense Items List</h2>
-      <ul>
-        {transactions.map((transaction, index) => (
+      <h2 className={styles.list_title}>Expense Items List</h2>
+      <ul className={styles.list_container}>
+        <div className={styles.list_header}>
+          <span>Title</span>
+          <span>Amount</span>
+          <span>Date</span>
+          <span>Category</span>
+          <span></span>
+        </div>
+        {transactions.map((transactions, index) => (
           <li key={index}>
             {/* Display transaction details */}
-            <div>Title: {transaction.expenseTitle}</div>
-            <div>Amount: {transaction.expenseAmount}</div>
-            <div>Date: {transaction.expenseDate}</div>
-            <div>Category: {transaction.expenseCategory}</div>
+            <span>{transactions.title}</span>
+            <span>{transactions.amount}</span>
+            <span>{transactions.date}</span>
+            <span>{transactions.category}</span>
             {/* Add a button to remove the transaction */}
             <button onClick={() => removeTransaction(index)}>Remove</button>
           </li>
