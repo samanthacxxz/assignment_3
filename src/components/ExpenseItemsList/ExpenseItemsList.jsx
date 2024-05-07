@@ -20,13 +20,13 @@ const ExpenseItemsList = ({ transactions, setTransactionData }) => {
           <span>Amount</span>
           <span>Date</span>
           <span>Category</span>
-          <span></span>
+          <span>Delete</span>
         </div>
         {transactions.map((transactions, index) => (
-          <li key={index}>
+          <li key={index} className={styles.items}>
             {/* Display transaction details */}
             <span>{transactions.title}</span>
-            <span>{transactions.amount}</span>
+            <span>{transactions.amount}kr</span>
             <span>{transactions.date}</span>
             <span>{transactions.category}</span>
             {/* Add a button to remove the transaction */}
