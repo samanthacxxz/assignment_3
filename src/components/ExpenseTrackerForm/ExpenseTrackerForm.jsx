@@ -148,7 +148,7 @@ const ExpenseTrackerForm = ({ updateTransactionData }) => {
             </div>
             <button 
             type='submit' 
-            className={styles.submitButton}>
+            className={styles.submit_button}>
                 Submit :)
             </button>
         </form>
