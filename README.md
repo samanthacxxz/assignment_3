@@ -1,8 +1,18 @@
-# React + Vite
+-- README-ASSIGNMENT 3 --
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+-- TITLE OF PROJECT --
 
-Currently, two official plugins are available:
+Assignment 3: Expense Tracker
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+--  DESCRIPTION --
+This project is a personal expense tracker app where user can keep track of their own spending by submitting its expenses to the app.
+
+-- FEATURES --
+
+Form: The app has a form which requires certain information regarding for purchases and expenditures.
+Display: All submitted expenses will be displayed in a list containing descriptions and information in a easilt readible manner.
+
+-- INSTALLATION --
+
+The project is using React-Vite + JavaScript.
+
